@@ -1,13 +1,18 @@
 # Tech Portfolio
-### Portfolio of all my personal + academic technical projects
+### A collection of my personal and academic technical projects
 
+---
 
-## Deforestation Viewer
-An interactive NDVI-based satellite viewer that detects and visualizes deforestation over time built with Streamlit and Microsoft Planetary Computer 
+## 🛰️ Deforestation Viewer  
+An interactive NDVI-based satellite visualization tool that detects and displays deforestation trends over time.  
+Built with **Streamlit**, **Python**, and the **Microsoft Planetary Computer**.
 
-`https://github.com/CryoAether/deforestation-viewer`
+🔗 [GitHub Repository](https://github.com/CryoAether/deforestation-viewer)
 
-## Price Prediction
-A generative model built with python to scrape eBay listing data and scikit-learn to predict future pricing 
+---
 
-`https://github.com/CryoAether/price-prediction`
+## 💰 Price Prediction  
+A machine learning system that scrapes **eBay** listing data and uses **scikit-learn** regression models to predict future item prices.  
+Includes automated feature engineering, experiment tracking, and a Streamlit interface for real-time predictions.
+
+🔗 [GitHub Repository](https://github.com/CryoAether/price-prediction)
