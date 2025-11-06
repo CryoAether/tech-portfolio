@@ -1,5 +1,5 @@
-# tech-portfolio
-Portfolio of all my personal + academic technical projects
+# Tech Portfolio
+## Portfolio of all my personal + academic technical projects
 
 
 ## Deforestation Viewer
