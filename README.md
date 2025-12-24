@@ -17,6 +17,4 @@ Built with Python and Flask.
 
 🔗 [GitHub Repository](https://github.com/CryoAether/stealth-web-scrape)
 
-![Stealth Web Scraper Demo](https://raw.githubusercontent.com/CryoAether/stealth-web-scrape/main/docs/image_1.png)
-
 ---
