@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Remote Sensing Data Pipeline & Spatiotemporal Engine | Ishan Vyas</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; max-width: 800px; margin: 0 auto; padding: 2.5rem 1.5rem; color: #111827; }
+    a.back-btn { font-family: 'Fira Code', monospace; text-decoration: none; color: #22c55e; font-size: 0.9rem; }
+    h1 { font-family: 'Fira Code', monospace; margin: 1.5rem 0 0.5rem 0; }
+    .meta { font-family: 'Fira Code', monospace; color: #6b7280; font-size: 0.85rem; margin-bottom: 2rem; }
+    .hero-img-placeholder { width: 100%; height: 260px; background: #f3f4f6; border: 1px dashed #d1d5db; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-family: 'Fira Code', monospace; color: #6b7280; margin-bottom: 2rem; }
+    h2 { font-family: 'Fira Code', monospace; font-size: 1.3rem; margin: 2rem 0 0.75rem 0; border-bottom: 1px solid #e5e7eb; padding-bottom: 0.35rem; }
+    ul { padding-left: 1.25rem; margin-bottom: 1.5rem; }
+    li { margin-bottom: 0.5rem; }
+    table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.9rem; }
+    th, td { border: 1px solid #e5e7eb; padding: 8px 12px; text-align: left; }
+    th { background-color: #f9fafb; font-family: 'Fira Code', monospace; }
+  </style>
+</head>
+<body>
+  <a href="../index.html#portfolio" class="back-btn">← Back to Portfolio</a>
+  <h1>Remote Sensing Data Pipeline & Viewer</h1>
+  <div class="meta">Timeline: Aug 2025 – Dec 2025 | Tech: Python, FastAPI, Dask, STAC, TypeScript, Vite</div>
+
+  <div class="hero-img-placeholder">
+    [ Placeholder: Multi-Temporal NDVI Heatmap Progression ]
+  </div>
+
+  <h2>Project Overview</h2>
+  <p>A high-throughput satellite data pipeline and interactive visualization dashboard for environmental change and deforestation trend modeling across multi-year temporal windows.</p>
+
+  <h2>Observation Matrix Sample</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Window</th>
+        <th>NDVI Signature</th>
+        <th>Environmental Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>2016</td>
+        <td>0.78 (Mean)</td>
+        <td>Dense Canopy / Forest Base</td>
+      </tr>
+      <tr>
+        <td>2024</td>
+        <td>0.69 (Mean)</td>
+        <td>Minor Visible Deviation</td>
+      </tr>
+      <tr>
+        <td>2025</td>
+        <td>0.31 (Mean)</td>
+        <td>Significant Delta (Δ) Attributed to Trend</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>Key Architectural Components</h2>
+  <ul>
+    <li><strong>STAC Query Ingestion:</strong> Programmatic discovery across multi-year temporal windows via Microsoft Planetary Computer STAC APIs.</li>
+    <li><strong>Distributed Array Reductions:</strong> Multi-threaded Dask computation calculating NDVI and localized delta metrics on 50GB+ unstructured arrays.</li>
+    <li><strong>Decoupled Delivery:</strong> Asynchronous FastAPI backend delivering compressed raster tiles to an interactive TypeScript frontend.</li>
+  </ul>
+</body>
+</html>
