@@ -201,7 +201,7 @@
 
     /* Portfolio Section Grid */
     .section-header {
-      margin-bottom: 2.5rem;
+      margin-bottom: 2rem;
     }
 
     .section-title {
@@ -302,59 +302,35 @@
       color: var(--text-muted);
     }
 
-    /* Resume Section */
-    .resume-section {
-      margin-bottom: 2rem;
-    }
-
-    .resume-section-title {
-      font-family: 'Fira Code', monospace;
-      font-size: 1.25rem;
-      font-weight: 600;
-      border-bottom: 1px solid var(--border);
-      padding-bottom: 0.5rem;
-      margin-bottom: 1.25rem;
-      color: var(--text-main);
-    }
-
-    .resume-item {
-      margin-bottom: 1.5rem;
-    }
-
-    .resume-item-header {
+    /* Resume Displayer Section */
+    .resume-meta-bar {
       display: flex;
       justify-content: space-between;
-      align-items: baseline;
-      flex-wrap: wrap;
-      margin-bottom: 0.25rem;
-    }
-
-    .resume-item-title {
-      font-weight: 600;
-      font-size: 1rem;
-    }
-
-    .resume-item-date {
+      align-items: center;
       font-family: 'Fira Code', monospace;
-      font-size: 0.8rem;
+      font-size: 0.9rem;
+      margin-bottom: 1.25rem;
       color: var(--text-muted);
     }
 
-    .resume-item-sub {
-      font-size: 0.9rem;
+    .resume-actions a {
       color: var(--accent);
-      margin-bottom: 0.5rem;
+      text-decoration: none;
       font-weight: 500;
+      margin-left: 1rem;
     }
 
-    .resume-list {
-      padding-left: 1.25rem;
-      font-size: 0.9rem;
-      color: #374151;
+    .resume-actions a:hover {
+      text-decoration: underline;
     }
 
-    .resume-list li {
-      margin-bottom: 0.35rem;
+    .pdf-viewer-frame {
+      width: 100%;
+      height: 900px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background-color: #323639;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
     }
 
     /* About Section Layout */
@@ -369,6 +345,9 @@
         flex-direction: column;
         align-items: flex-start;
         gap: 2rem;
+      }
+      .pdf-viewer-frame {
+        height: 600px;
       }
     }
 
@@ -604,88 +583,20 @@
     </main>
 
     <main id="resume" class="tab-pane">
-      <div class="section-header">
-        <h2 class="section-title">Resume</h2>
-        <p class="section-description">Education, technical skills, and software development history.</p>
+      <div class="resume-meta-bar">
+        <span>Last Updated 08/2026</span>
+        <div class="resume-actions">
+          <a href="assets/Lachlan_Black_Resume_SWE.pdf" target="_blank" rel="noopener noreferrer">↗ Open PDF</a>
+          <a href="assets/Lachlan_Black_Resume_SWE.pdf" download>↓ Download</a>
+        </div>
       </div>
 
-      <section class="resume-section">
-        <h3 class="resume-section-title">Education</h3>
-        <div class="resume-item">
-          <div class="resume-item-header">
-            <div class="resume-item-title">Duke University</div>
-            <div class="resume-item-date">Expected 2028</div>
-          </div>
-          <div class="resume-item-sub">B.S. in Computer Science</div>
-        </div>
-      </section>
-
-      <section class="resume-section">
-        <h3 class="resume-section-title">Technical Projects</h3>
-
-        <div class="resume-item">
-          <div class="resume-item-header">
-            <div class="resume-item-title">Distributed Fleet Telemetry & Streaming Pipeline</div>
-            <div class="resume-item-date">Jul 2026 – Present</div>
-          </div>
-          <div class="resume-item-sub">Python, Apache Kafka, FastAPI, WebSockets, Redis</div>
-          <ul class="resume-list">
-            <li>Developed an event-driven Python and Apache Kafka pipeline processing 15,000+ events/sec across partitioned topics.</li>
-            <li>Implemented stateful sliding-window aggregations and anomaly detection to identify battery and descent faults in &lt;50ms.</li>
-            <li>Configured multi-consumer groups with manual offset commits and DLQs to ensure fault tolerance and zero data loss.</li>
-            <li>Engineered a FastAPI WebSocket gateway and Redis cache to stream telemetry to a live troubleshooting dashboard.</li>
-          </ul>
-        </div>
-
-        <div class="resume-item">
-          <div class="resume-item-header">
-            <div class="resume-item-title">Autonomous UAV & Flight Controller</div>
-            <div class="resume-item-date">Jan 2026 – Jun 2026</div>
-          </div>
-          <div class="resume-item-sub">C++, ARM Cortex-M7 (Teensy 4.0), Sensor Fusion, PID Control</div>
-          <ul class="resume-list">
-            <li>Built a 1 kHz C++ flight loop on a Teensy 4.0 executing real-time PID control algorithms to stabilize a carbon-fiber UAV.</li>
-            <li>Developed a two-state Kalman filter to fuse barometer and IMU data for altitude and vertical velocity estimation.</li>
-            <li>Programmed BMI323 registers to apply a 10 Hz low-pass filter to isolate true motion from motor vibrations.</li>
-          </ul>
-        </div>
-
-        <div class="resume-item">
-          <div class="resume-item-header">
-            <div class="resume-item-title">Remote Sensing Data Pipeline & Spatiotemporal Engine</div>
-            <div class="resume-item-date">Aug 2025 – Dec 2025</div>
-          </div>
-          <div class="resume-item-sub">Python, FastAPI, Dask, TypeScript, Rasterio, STAC API</div>
-          <ul class="resume-list">
-            <li>Implemented multi-threaded Dask workflows to run parallel matrix reductions on 50GB+ geospatial array datasets.</li>
-            <li>Integrated Microsoft Planetary Computer STAC APIs for automated multi-temporal observation ingestion.</li>
-            <li>Designed a partitioned PostgreSQL schema with spatial indexing to accelerate trend-modeling and analytical queries.</li>
-            <li>Engineered an asynchronous FastAPI serialization layer to stream geospatial payloads and cut I/O latency by over 35%.</li>
-          </ul>
-        </div>
-
-        <div class="resume-item">
-          <div class="resume-item-header">
-            <div class="resume-item-title">Stealth Web Scraper & Listing Viewer</div>
-            <div class="resume-item-date">Jun 2025 – Aug 2025</div>
-          </div>
-          <div class="resume-item-sub">Python, Web Scraping, Structured ETL, Frontend UI</div>
-          <ul class="resume-list">
-            <li>Built a browser-emulating web scraper that extracts listing data from protected sites with lightweight footprint.</li>
-            <li>Engineered decoupled pipeline isolating data acquisition, parsing, and caching layers.</li>
-            <li>Provided interactive, sortable web interface for structured exploratory analysis.</li>
-          </ul>
-        </div>
-      </section>
-
-      <section class="resume-section">
-        <h3 class="resume-section-title">Technical Skills</h3>
-        <ul class="resume-list">
-          <li><strong>Languages:</strong> C++, Python, TypeScript, JavaScript, SQL</li>
-          <li><strong>Frameworks & Tools:</strong> FastAPI, Apache Kafka, Dask, Redis, PostgreSQL, PyTorch, Docker, Git</li>
-          <li><strong>Embedded & Hardware:</strong> ARM Cortex-M7 / Teensy, Sensor Interfacing (I2C/SPI), PID Controllers, Kalman Filters</li>
-        </ul>
-      </section>
+      <iframe 
+        src="assets/Lachlan_Black_Resume_SWE.pdf#toolbar=1&navpanes=0" 
+        class="pdf-viewer-frame" 
+        title="Lachlan Black Resume">
+        <p>Your browser does not support PDF embedding. <a href="assets/Lachlan_Black_Resume_SWE.pdf">Click here to download the resume directly.</a></p>
+      </iframe>
     </main>
 
     <main id="about" class="tab-pane">
