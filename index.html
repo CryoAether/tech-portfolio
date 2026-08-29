@@ -250,12 +250,6 @@
       position: relative;
     }
 
-    .project-thumb {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
     .placeholder-badge {
       font-family: 'Fira Code', monospace;
       font-size: 0.75rem;
@@ -363,6 +357,105 @@
       margin-bottom: 0.35rem;
     }
 
+    /* About Section Layout */
+    .about-layout {
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+    }
+
+    @media (max-width: 768px) {
+      .about-layout {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2rem;
+      }
+    }
+
+    .about-avatar-container {
+      flex-shrink: 0;
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 3px solid var(--border);
+      background-color: var(--card-bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .about-avatar {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .avatar-placeholder {
+      font-family: 'Fira Code', monospace;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      text-align: center;
+      padding: 1rem;
+    }
+
+    .about-content {
+      flex: 1;
+    }
+
+    .about-text {
+      font-family: 'Fira Code', monospace;
+      font-size: 0.95rem;
+      line-height: 1.8;
+      color: #374151;
+      margin-bottom: 1.75rem;
+    }
+
+    .about-text strong {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .about-contact-label {
+      font-family: 'Fira Code', monospace;
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .about-contact-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .about-contact-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-family: 'Fira Code', monospace;
+      font-size: 0.9rem;
+    }
+
+    .about-contact-item svg {
+      stroke: var(--accent);
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .about-contact-item a {
+      color: var(--accent);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .about-contact-item a:hover {
+      text-decoration: underline;
+    }
+
     /* Footer */
     footer {
       margin-top: auto;
@@ -388,6 +481,7 @@
           <li><button class="nav-tab active" data-target="home">Home</button></li>
           <li><button class="nav-tab" data-target="portfolio">Portfolio</button></li>
           <li><button class="nav-tab" data-target="resume">Resume</button></li>
+          <li><button class="nav-tab" data-target="about">About</button></li>
         </ul>
       </nav>
     </header>
@@ -395,12 +489,13 @@
     <main id="home" class="tab-pane active">
       <h1 class="hero-title">Hi, I'm Lachlan Black!</h1>
       <p class="hero-subtitle">
-        I'm a Computer Science junior at Duke University building high-throughput data systems, embedded flight software, and distributed telemetry backends.
+        I'm a Computer Science student at Duke University building high-throughput data systems, embedded flight software, and distributed telemetry backends.
       </p>
 
       <ul class="quick-links">
         <li>See my <a onclick="switchTab('portfolio')">portfolio</a></li>
         <li>Read my <a onclick="switchTab('resume')">resume</a></li>
+        <li>Learn more <a onclick="switchTab('about')">about me</a></li>
       </ul>
 
       <div class="social-links">
@@ -410,7 +505,7 @@
         <a href="https://github.com/CryoAether" target="_blank" rel="noopener noreferrer" title="GitHub">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
         </a>
-        <a href="https://www.linkedin.com/in/lachlan-black-duke/" target="_blank" rel="noopener noreferrer" title="LinkedIn">
+        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" title="LinkedIn">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
         </a>
       </div>
@@ -521,7 +616,7 @@
             <div class="resume-item-title">Duke University</div>
             <div class="resume-item-date">Expected 2028</div>
           </div>
-          <div class="resume-item-sub">B.S. in Electrical & Computer Engineering</div>
+          <div class="resume-item-sub">B.S. in Computer Science</div>
         </div>
       </section>
 
@@ -593,6 +688,38 @@
       </section>
     </main>
 
+    <main id="about" class="tab-pane">
+      <div class="about-layout">
+        <div class="about-avatar-container">
+          <img src="profile.jpg" alt="Lachlan Black" class="about-avatar" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+          <div class="avatar-placeholder" style="display: none;">[ Profile Photo Placeholder ]</div>
+        </div>
+
+        <div class="about-content">
+          <h2 class="section-title" style="margin-bottom: 1.25rem;">About Me</h2>
+          <p class="about-text">
+            I'm a Computer Science student at <strong>Duke University</strong> focused on distributed systems, real-time telemetry streaming, and embedded software architectures. When I'm away from a terminal, I spend my time hiking, playing guitar, boxing, working on cars.
+          </p>
+
+          <div class="about-contact-label">Contact me:</div>
+          <ul class="about-contact-list">
+            <li class="about-contact-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+              <a href="mailto:lachlan.black@duke.edu">lachlan.black@duke.edu</a>
+            </li>
+            <li class="about-contact-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            </li>
+            <li class="about-contact-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+              <a href="https://github.com/CryoAether" target="_blank" rel="noopener noreferrer">CryoAether</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </main>
+
     <footer>
       <p>© 2026 Lachlan Black. Hosted on GitHub Pages.</p>
     </footer>
@@ -617,15 +744,13 @@
       btn.addEventListener('click', () => switchTab(btn.dataset.target));
     });
 
-    // Handle Direct Anchors / Back-Forward navigation
     window.addEventListener('load', () => {
       const hash = window.location.hash.replace('#', '');
-      if (hash && ['home', 'portfolio', 'resume'].includes(hash)) {
+      if (hash && ['home', 'portfolio', 'resume', 'about'].includes(hash)) {
         switchTab(hash);
       }
     });
 
-    // Site color switcher
     function setAccent(color, hoverColor, swatchEl) {
       document.documentElement.style.setProperty('--accent', color);
       document.documentElement.style.setProperty('--accent-hover', hoverColor);
