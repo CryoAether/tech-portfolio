@@ -2,67 +2,89 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Remote Sensing Data Pipeline & Spatiotemporal Engine | Ishan Vyas</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Municipal Canopy Engine & Satellite Viewer | Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    body { font-family: 'Inter', sans-serif; max-width: 800px; margin: 0 auto; padding: 2.5rem 1.5rem; color: #111827; }
-    a.back-btn { font-family: 'Fira Code', monospace; text-decoration: none; color: #22c55e; font-size: 0.9rem; }
-    h1 { font-family: 'Fira Code', monospace; margin: 1.5rem 0 0.5rem 0; }
+    body { font-family: 'Inter', sans-serif; max-width: 820px; margin: 0 auto; padding: 3rem 1.5rem; color: #111827; background: #ffffff; line-height: 1.6; }
+    a.back-btn { font-family: 'Fira Code', monospace; text-decoration: none; color: #16a34a; font-size: 0.9rem; font-weight: 500; }
+    a.back-btn:hover { text-decoration: underline; }
+    h1 { font-family: 'Fira Code', monospace; margin: 1.5rem 0 0.5rem 0; font-size: 1.85rem; letter-spacing: -0.02em; }
     .meta { font-family: 'Fira Code', monospace; color: #6b7280; font-size: 0.85rem; margin-bottom: 2rem; }
-    .hero-img-placeholder { width: 100%; height: 260px; background: #f3f4f6; border: 1px dashed #d1d5db; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-family: 'Fira Code', monospace; color: #6b7280; margin-bottom: 2rem; }
-    h2 { font-family: 'Fira Code', monospace; font-size: 1.3rem; margin: 2rem 0 0.75rem 0; border-bottom: 1px solid #e5e7eb; padding-bottom: 0.35rem; }
-    ul { padding-left: 1.25rem; margin-bottom: 1.5rem; }
-    li { margin-bottom: 0.5rem; }
+    .hero-img { width: 100%; border-radius: 16px; border: 1px solid #e5e7eb; box-shadow: 0 10px 30px -10px rgba(0,0,0,0.08); margin-bottom: 2.5rem; display: block; }
+    h2 { font-family: 'Fira Code', monospace; font-size: 1.25rem; margin: 2.5rem 0 0.75rem 0; border-bottom: 1px solid #e5e7eb; padding-bottom: 0.4rem; }
+    p { margin-bottom: 1.25rem; color: #374151; font-size: 0.95rem; }
+    ul { padding-left: 1.25rem; margin-bottom: 1.5rem; color: #374151; font-size: 0.95rem; }
+    li { margin-bottom: 0.6rem; }
     table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.9rem; }
-    th, td { border: 1px solid #e5e7eb; padding: 8px 12px; text-align: left; }
-    th { background-color: #f9fafb; font-family: 'Fira Code', monospace; }
+    th, td { border: 1px solid #e5e7eb; padding: 10px 14px; text-align: left; }
+    th { background-color: #f9fafb; font-family: 'Fira Code', monospace; font-weight: 600; }
+    .metric-callout { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
+    .metric-card { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 10px; padding: 1rem 1.25rem; }
+    .metric-val { font-family: 'Fira Code', monospace; font-size: 1.4rem; font-weight: 600; color: #15803d; }
+    .metric-lbl { font-size: 0.8rem; color: #6b7280; text-transform: uppercase; font-weight: 500; }
   </style>
 </head>
 <body>
   <a href="../index.html#portfolio" class="back-btn">← Back to Portfolio</a>
-  <h1>Remote Sensing Data Pipeline & Viewer</h1>
-  <div class="meta">Timeline: Aug 2025 – Dec 2025 | Tech: Python, FastAPI, Dask, STAC, TypeScript, Vite</div>
+  <h1>Municipal Canopy Engine & Satellite Viewer</h1>
+  <div class="meta">Timeline: Aug 2025 – Dec 2025 | Tech: Python, FastAPI, Rasterio, PostGIS, STAC, React, TypeScript</div>
 
-  <div class="hero-img-placeholder">
-    [ Placeholder: Multi-Temporal NDVI Heatmap Progression ]
-  </div>
+  <img src="../assets/deforestation.png" alt="Multi-Temporal Foliage Synthesis Demo" class="hero-img" />
 
   <h2>Project Overview</h2>
-  <p>A high-throughput satellite data pipeline and interactive visualization dashboard for environmental change and deforestation trend modeling across multi-year temporal windows.</p>
+  <p>An on-demand geospatial pipeline and interactive analysis dashboard that computes high-resolution vegetative health and municipal canopy shifts across multi-year temporal baselines (2020 vs. 2024). The engine queries European Space Agency (ESA) Sentinel-2 Level-2A surface reflectance data on the fly, isolates official administrative boundaries, and calculates true vegetative presence within seconds.</p>
 
-  <h2>Observation Matrix Sample</h2>
+  <div class="metric-callout">
+    <div class="metric-card">
+      <div class="metric-val">&lt; 3.0s</div>
+      <div class="metric-lbl">Concurrent Pipeline Ingestion</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-val">10–20m</div>
+      <div class="metric-lbl">Spatial Ground Resolution</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-val">ESA PB 04.00+</div>
+      <div class="metric-lbl">Radiometric Calibration</div>
+    </div>
+  </div>
+
+  <h2>Key Architectural Components</h2>
+  <ul>
+    <li><strong>Asynchronous STAC Pipeline:</strong> Concurrently queries Microsoft Planetary Computer APIs to discover, sign, and ingest cloud-optimized GeoTIFF (COG) band assets (B04, B08, SCL) across multi-year temporal windows.</li>
+    <li><strong>Radiometric Baseline Harmonization:</strong> Normalizes digital numbers and compensates for the ESA Processing Baseline 04.00 offset (−1000 DN) to eliminate false sensor delta artifacts across 2020–2024 datasets.</li>
+    <li><strong>Sub-Window GDAL Streaming:</strong> Bypasses heavyweight array loading by executing parallelized HTTP/2 range-requests via Rasterio and ThreadPools, pulling only the exact bounding-box pixels required for the target municipal extent.</li>
+    <li><strong>Vector Polygon Masking:</strong> Integrates OpenStreetMap boundary GeoJSONs with OpenCV and PostGIS to rasterize official city perimeters, isolating municipal land from peripheral unincorporated terrain and open water.</li>
+    <li><strong>Interactive Split UI:</strong> Modern React/TypeScript dashboard featuring a real-time comparison scrubber, locked aspect-ratio viewing, and categorized spectral color-ramping.</li>
+  </ul>
+
+  <h2>Multi-Temporal Spectral Matrix</h2>
   <table>
     <thead>
       <tr>
-        <th>Window</th>
+        <th>Classification</th>
         <th>NDVI Signature</th>
-        <th>Environmental Status</th>
+        <th>Biophysical Status</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td>2016</td>
-        <td>0.78 (Mean)</td>
-        <td>Dense Canopy / Forest Base</td>
+        <td>Urban / Bare Soil</td>
+        <td>&lt; 0.28</td>
+        <td>Impervious surfaces, road networks, and civil infrastructure</td>
       </tr>
       <tr>
-        <td>2024</td>
-        <td>0.69 (Mean)</td>
-        <td>Minor Visible Deviation</td>
+        <td>Moderate Greenery</td>
+        <td>0.28 – 0.50</td>
+        <td>Managed turf, residential lawns, parks, and seasonal scrub</td>
       </tr>
       <tr>
-        <td>2025</td>
-        <td>0.31 (Mean)</td>
-        <td>Significant Delta (Δ) Attributed to Trend</td>
+        <td>Dense Canopy</td>
+        <td>&gt; 0.50</td>
+        <td>Established tree groves, riparian vegetation, and dense forest</td>
       </tr>
     </tbody>
   </table>
-
-  <h2>Key Architectural Components</h2>
-  <ul>
-    <li><strong>STAC Query Ingestion:</strong> Programmatic discovery across multi-year temporal windows via Microsoft Planetary Computer STAC APIs.</li>
-    <li><strong>Distributed Array Reductions:</strong> Multi-threaded Dask computation calculating NDVI and localized delta metrics on 50GB+ unstructured arrays.</li>
-    <li><strong>Decoupled Delivery:</strong> Asynchronous FastAPI backend delivering compressed raster tiles to an interactive TypeScript frontend.</li>
-  </ul>
 </body>
 </html>

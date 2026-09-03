@@ -2,15 +2,17 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Distributed Fleet Telemetry & Streaming Pipeline | Ishan Vyas</title>
   <link rel="stylesheet" href="../projects.css" />
   <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    body { font-family: 'Inter', sans-serif; max-width: 800px; margin: 0 auto; padding: 2.5rem 1.5rem; color: #111827; }
+    body { font-family: 'Inter', sans-serif; max-width: 800px; margin: 0 auto; padding: 2.5rem 1.5rem; color: #111827; background: #ffffff; }
     a.back-btn { font-family: 'Fira Code', monospace; text-decoration: none; color: #22c55e; font-size: 0.9rem; }
-    h1 { font-family: 'Fira Code', monospace; margin: 1.5rem 0 0.5rem 0; }
+    a.back-btn:hover { text-decoration: underline; }
+    h1 { font-family: 'Fira Code', monospace; margin: 1.5rem 0 0.5rem 0; font-size: 1.85rem; letter-spacing: -0.02em; }
     .meta { font-family: 'Fira Code', monospace; color: #6b7280; font-size: 0.85rem; margin-bottom: 2rem; }
-    .hero-img-placeholder { width: 100%; height: 260px; background: #f3f4f6; border: 1px dashed #d1d5db; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-family: 'Fira Code', monospace; color: #6b7280; margin-bottom: 2rem; }
+    .hero-img { width: 100%; border-radius: 8px; border: 1px solid #1f2937; box-shadow: 0 10px 30px -10px rgba(0,0,0,0.15); margin-bottom: 2rem; display: block; }
     h2 { font-family: 'Fira Code', monospace; font-size: 1.3rem; margin: 2rem 0 0.75rem 0; border-bottom: 1px solid #e5e7eb; padding-bottom: 0.35rem; }
     ul { padding-left: 1.25rem; margin-bottom: 1.5rem; }
     li { margin-bottom: 0.5rem; }
@@ -22,9 +24,11 @@
   <h1>Distributed Fleet Telemetry Pipeline</h1>
   <div class="meta">Timeline: Jul 2026 – Present | Tech: Python, Apache Kafka, FastAPI, WebSockets, Redis</div>
 
-  <div class="hero-img-placeholder">
-    [ Placeholder: Real-Time Stream Architecture & Window State Diagram ]
-  </div>
+  <img 
+    src="../assets/telemetry-hero.png" 
+    alt="Real-Time Stream Architecture & Window State Diagram" 
+    class="hero-img" 
+  />
 
   <h2>System Architecture</h2>
   <p>An end-to-end event-driven architecture designed to process high-throughput flight telemetry records across geographically distributed autonomous nodes with guaranteed message ordering and sub-50ms fault notification.</p>
@@ -37,17 +41,6 @@
     <li><strong>WebSocket Gateway:</strong> Asynchronous FastAPI broadcast layer paired with Redis pub/sub to stream diagnostic alerts directly to a ground monitoring interface.</li>
   </ul>
 
-  <h2>Sample Stream Processing Logic</h2>
-  <pre><code>async def consume_telemetry_stream(consumer: AIOKafkaConsumer, redis_client: redis.Redis):
-    async for msg in consumer:
-        payload = json.loads(msg.value)
-        node_id = payload["drone_id"]
-        
-        # Check running state in Redis ring buffer
-        is_anomalous = detect_rapid_descent(node_id, payload["altitude"], payload["timestamp"])
-        if is_anomalous:
-            await trigger_ground_alert(node_id, payload)
-        
-        await consumer.commit()</code></pre>
+
 </body>
 </html>

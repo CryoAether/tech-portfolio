@@ -9,7 +9,6 @@
     a.back-btn { font-family: 'Fira Code', monospace; text-decoration: none; color: #22c55e; font-size: 0.9rem; }
     h1 { font-family: 'Fira Code', monospace; margin: 1.5rem 0 0.5rem 0; }
     .meta { font-family: 'Fira Code', monospace; color: #6b7280; font-size: 0.85rem; margin-bottom: 2rem; }
-    .hero-img-placeholder { width: 100%; height: 260px; background: #f3f4f6; border: 1px dashed #d1d5db; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-family: 'Fira Code', monospace; color: #6b7280; margin-bottom: 2rem; }
     h2 { font-family: 'Fira Code', monospace; font-size: 1.3rem; margin: 2rem 0 0.75rem 0; border-bottom: 1px solid #e5e7eb; padding-bottom: 0.35rem; }
     ul { padding-left: 1.25rem; margin-bottom: 1.5rem; }
     li { margin-bottom: 0.5rem; }
@@ -21,30 +20,15 @@
   <h1>Autonomous UAV & Flight Controller</h1>
   <div class="meta">Timeline: Jan 2026 – Jun 2026 | Tech: C++, ARM Cortex-M7 (Teensy 4.0), Sensor Fusion, PID</div>
 
-  <div class="hero-img-placeholder">
-    [ Placeholder: Hardware Block Diagram & PID Control Flow ]
-  </div>
-
   <h2>Project Overview</h2>
   <p>Custom-built quadcopter running a high-frequency bare-metal flight loop on a 600MHz ARM Cortex-M7 Teensy 4.0 microcontroller. Designed to execute precise attitude stabilization and altitude hold via sensor fusion.</p>
 
   <h2>Technical Features</h2>
   <ul>
     <li><strong>1 kHz Deterministic Loop:</strong> Uses hardware timers to read registers, update Kalman state vectors, calculate PID outputs, and output DShot motor signals with microsecond timing.</li>
-    <li><strong>Sensor Filtering:</strong> Configured the onboard BMI323 IMU digital filters (10 Hz low-pass) to remove high-frequency structural vibration and motor harmonic noise.</li>
+    <li><strong>Sensor Filtering:</strong> Configured the onboard BMI323 IMU digital filters to remove high-frequency structural vibration and motor harmonic noise.</li>
     <li><strong>2-State Kalman Filter:</strong> Fuses vertical accelerometer integrals with barometer readings to produce accurate vertical velocity and altitude state estimates.</li>
   </ul>
 
-  <h2>Sample PID Flight Loop</h2>
-  <pre><code>void loop_1000Hz() {
-    read_sensors_raw();
-    kalman_filter_update(raw_accel, raw_baro);
-    
-    float roll_output  = pid_calculate(&pid_roll,  target_roll,  current_roll);
-    float pitch_output = pid_calculate(&pid_pitch, target_pitch, current_pitch);
-    float yaw_output   = pid_calculate(&pid_yaw,   target_yaw,   current_yaw);
-    
-    mix_and_write_motor_dshot(roll_output, pitch_output, yaw_output);
-}</code></pre>
 </body>
 </html>
